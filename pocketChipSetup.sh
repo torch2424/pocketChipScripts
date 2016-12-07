@@ -3,9 +3,11 @@
 # Import our functions
 source util/utilFunctions.sh
 
-source install/installDoom.sh
+source install/installSamba.sh
 source install/installPocketHome.sh
+source install/installDoom.sh
 source install/instalQuake3.sh
+source install/installMednafen.sh
 
 # This will be the initial set up script for pocket chip
 
@@ -65,7 +67,17 @@ fi
 
 #Samba Server (For Easy file transfer)
 #https://bbs.nextthing.co/t/chip-nas-network-attached-storage/1685/2
-#Coming soon!
+print-spacing
+e_arrow "Samba Server"
+e_note "This will install a Samba server, which will make it very easy to view/transfer files over a newtork"
+e_note "It will be accessible at smb://chip"
+seek_confirmation "Would you like to install a Samba server?"
+if is_confirmed; then
+    e_bold "Installing Samba Server..."
+    install-samba
+else
+  e_bold "Installation skipped"
+fi
 
 #Install Doom
 #http://blog.nextthing.co/customize-the-hell-out-of-your-pocketc-h-i-p-install-doom-give-it-an-icon-on-the-home-screen/
