@@ -17,7 +17,7 @@ get-sudo() {
 
 #Timeout before running next command
 command-delay() {
-    sleep 2
+    sleep 1
 }
 
 #Find a line containing the text, and replace the entire line with the other passed text

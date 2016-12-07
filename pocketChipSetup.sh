@@ -17,7 +17,7 @@ e_header "Hello! Welcome to the torch2424 pocket chip setup script!!!"
 print-spacing
 
 #Save the user home directory to pass to functions that need it
-HOME="$(dirname ~)"
+USER_HOME="$(dirname ~)/$(whoami)"
 
 # Ask for sudo (To install packages and update)
 e_warning "This script will need superuser access to run things like apt-get."
@@ -74,7 +74,7 @@ seek_confirmation "Would you like to install a surf user agent string?"
 if is_confirmed; then
     e_bold "Installing surf user agent string..."
     command-delay
-    echo  'export SURF_USERAGENT="Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19"' >> ${HOME}/.bashrc
+    echo  'export SURF_USERAGENT="Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19"' >> ${USER_HOME}/.bashrc
 else
   e_bold "Installation skipped"
 fi
@@ -89,7 +89,7 @@ seek_confirmation "Would you like to install a Samba server?"
 if is_confirmed; then
     e_bold "Installing Samba Server..."
     command-delay
-    install-samba
+    install-samba $USER_HOME
 else
   e_bold "Installation skipped"
 fi
@@ -102,7 +102,7 @@ e_note "Next Thing Co. Doom Install found at: https://bbs.nextthing.co/t/pocket-
 seek_confirmation "Would you like to install Doom?"
 if is_confirmed; then
     e_bold "Installing Doom..."
-    command-dely
+    command-delay
     install-doom
 else
   e_bold "Installation skipped"
