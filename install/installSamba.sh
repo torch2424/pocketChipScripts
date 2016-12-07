@@ -2,6 +2,9 @@
 
 # Don't need to source util in here, since we are sourcing this function after util in main
 
+#Declare our folder name variable
+SAMBA_FOLDER="chipSamba"
+
 #Samba Server (For Easy file transfer)
 #https://bbs.nextthing.co/t/chip-nas-network-attached-storage/1685/2
 #https://www.theurbanpenguin.com/setting-up-a-samba-server-on-raspberry-pi/
@@ -17,11 +20,11 @@ install-samba() {
     find-replace-line "directory mask =" "directory mask = 0775" /etc/samba/smb.conf
 
     #Make the path for the samba
-    mkdir /home/chip/sambaShare
-    chmod 1777 /home/chip/sambaShare
+    mkdir /home/chip/$SAMBA_FOLDER
+    chmod 1777 /home/chip/$SAMBA_FOLDER
 
     #Add to the bottom of the conf
-    echo "[chipSamba]" >> /etc/samba/smb.conf
+    echo "[$SAMBA_FOLDER]" >> /etc/samba/smb.conf
     echo "path = /home/chip/sambaShare" >> /etc/samba/smb.conf
     echo "public = yes" >> /etc/samba/smb.conf
     echo "writable = yes" >> /etc/samba/smb.conf
