@@ -17,7 +17,8 @@ install-samba() {
     find-replace-line "directory mask =" "directory mask = 0775" /etc/samba/smb.conf
 
     #Make the path for the samba
-    mkdir ${1}/sambaShare
+    mkdir /home/chip/sambaShare
+    chmod 1777 /home/chip/sambaShare
 
     #Add to the bottom of the conf
     echo "[chipSamba]" >> /etc/samba/smb.conf
