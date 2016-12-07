@@ -15,6 +15,11 @@ get-sudo() {
     [ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
 }
 
+#Timeout before running next command
+command-delay() {
+    sleep 2
+}
+
 #Find a line containing the text, and replace the entire line with the other passed text
 #Reference: http://stackoverflow.com/questions/11245144/replace-whole-line-containing-a-string-using-sed
 #@param $1 - The First argument, The Text to be found in a file

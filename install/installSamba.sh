@@ -8,23 +8,23 @@ install-samba() {
     sudo apt-get install -y samba
 
     #Edit the config
-    find-replace-line "workgroup =" "workgroup = rday" /etc/samba/conf
-    find-replace-line "security =" "security = share" /etc/samba/conf
-    find-replace-line "share modes =" "share modes = yes" /etc/samba/conf
-    find-replace-line "create mask =" "create mask = 0775" /etc/samba/conf
-    find-replace-line "directory mask =" "directory mask = 0775" /etc/samba/conf
+    find-replace-line "workgroup =" "workgroup = rday" /etc/samba/smb.conf
+    find-replace-line "security =" "security = share" /etc/samba/smb.conf
+    find-replace-line "share modes =" "share modes = yes" /etc/samba/smb.conf
+    find-replace-line "create mask =" "create mask = 0775" /etc/samba/smb.conf
+    find-replace-line "directory mask =" "directory mask = 0775" /etc/samba/smb.conf
 
     #Make the path for the samba
-    mkdir ~/sambaShare
+    mkdir /home/chip/sambaShare
 
     #Add to the bottom of the conf
-    echo "[public]" >> /etc/samba/conf
-    echo "path = /home/chip/sambaShare" >> /etc/samba/conf
-    echo "public = yes" >> /etc/samba/conf
-    echo "writable = yes" >> /etc/samba/conf
-    echo "comment = smb share" >> /etc/samba/conf
-    echo "printable = no" >> /etc/samba/conf
-    echo "guest ok = yes" >> /etc/samba/conf
+    echo "[public]" >> /etc/samba/smb.conf
+    echo "path = /home/chip/sambaShare" >> /etc/samba/smb.conf
+    echo "public = yes" >> /etc/samba/smb.conf
+    echo "writable = yes" >> /etc/samba/smb.conf
+    echo "comment = smb share" >> /etc/samba/smb.conf
+    echo "printable = no" >> /etc/samba/smb.conf
+    echo "guest ok = yes" >> /etc/samba/smb.conf
 
     #Restart samba
     /etc/init.d/samba restart

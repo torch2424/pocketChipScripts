@@ -16,21 +16,32 @@ print-spacing
 e_header "Hello! Welcome to the torch2424 pocket chip setup script!!!"
 print-spacing
 
+#Save the user home directory to pass to functions that need it
+HOME="$(dirname ~)"
+
 # Ask for sudo (To install packages and update)
 e_warning "This script will need superuser access to run things like apt-get."
 get-sudo
 
-# Update/Upgrade the chip
-#Make this optiinal, kind of annoying to run every time
-print-spacing
-e_arrow "Updating/Upgrading pocket chip!"
-sudo apt-get update
-sudo apt-get -y upgrade
-
 # Install somebasic extras, taken from alot of blog posts
 print-spacing
-e_arrow "Installing some extras (ssh, git, etc...)"
+e_arrow "Installing some extras/dependencies (ssh, git, etc...)"
+command-delay
 sudo apt-get install -y ssh git sed
+
+# Update/Upgrade the chip
+print-spacing
+e_arrow "Updating/Upgrading pocket chip"
+e_note "This is highly suggested if this is the first time installing packages with the device"
+seek_confirmation "Would you like to Update/Upgrade pocket chip?"
+if is_confirmed; then
+    e_bold "Updating/Upgrading pocket chip..."
+    command-delay
+    sudo apt-get update
+    sudo apt-get -y upgrade
+else
+  e_bold "Installation skipped"
+fi
 
 #Inform of swtiching to user input
 print-spacing
@@ -45,6 +56,7 @@ e_note "Pocket Home Marshmallow Edition can be found at: https://bbs.nextthing.c
 seek_confirmation "Would you like to install Pocket Home (Marshmallow Edition)?"
 if is_confirmed; then
     e_bold "Installing Pocket Home (Marshmallow Edition)..."
+    command-delay
     install-pocket-home
 else
   e_bold "Installation skipped"
@@ -61,7 +73,8 @@ e_note "This will add a android Nexus S user agent string to your browser to mak
 seek_confirmation "Would you like to install a surf user agent string?"
 if is_confirmed; then
     e_bold "Installing surf user agent string..."
-    echo  'export SURF_USERAGENT="Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19"' >> ~/.bashrc
+    command-delay
+    echo  'export SURF_USERAGENT="Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19"' >> ${HOME}/.bashrc
 else
   e_bold "Installation skipped"
 fi
@@ -75,6 +88,7 @@ e_note "It will be accessible at smb://chip"
 seek_confirmation "Would you like to install a Samba server?"
 if is_confirmed; then
     e_bold "Installing Samba Server..."
+    command-delay
     install-samba
 else
   e_bold "Installation skipped"
@@ -88,6 +102,7 @@ e_note "Next Thing Co. Doom Install found at: https://bbs.nextthing.co/t/pocket-
 seek_confirmation "Would you like to install Doom?"
 if is_confirmed; then
     e_bold "Installing Doom..."
+    command-dely
     install-doom
 else
   e_bold "Installation skipped"
@@ -101,6 +116,7 @@ e_note "Next Thing Co. Quake III Install found at: http://blog.nextthing.co/acce
 seek_confirmation "Would you like to install Quake III?"
 if is_confirmed; then
     e_bold "Installing Quake III"
+    command-delay
     install-quake-3
 else
   e_bold "Installation skipped"
