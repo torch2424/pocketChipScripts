@@ -4,13 +4,24 @@
 #       Custom Scripts
 ##################################################################################
 
+#Simply print some new lines for a script
 print-spacing() {
     echo " "
     echo " "
 }
 
+#Prompt the user for sudo access
 get-sudo() {
     [ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
+}
+
+#Find a line containing the text, and replace the entire line with the other passed text
+#Reference: http://stackoverflow.com/questions/11245144/replace-whole-line-containing-a-string-using-sed
+#@param $1 - The First argument, The Text to be found in a file
+#@param $2 - The second argument, the line the will be replacing the entire first line
+#@param $3 - The Third/Last argument, the file this function will be run against
+find-replace-line() {
+    sed -i '/$1/c\$2' $3
 }
 
 ##################################################################################
