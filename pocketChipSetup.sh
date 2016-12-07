@@ -21,6 +21,7 @@ e_warning "This script will need superuser access to run things like apt-get."
 get-sudo
 
 # Update/Upgrade the chip
+#Make this optiinal, kind of annoying to run every time
 print-spacing
 e_arrow "Updating/Upgrading pocket chip!"
 sudo apt-get update
