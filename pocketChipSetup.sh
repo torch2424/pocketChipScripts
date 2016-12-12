@@ -8,6 +8,7 @@ source install/installPocketHome.sh
 source install/installDoom.sh
 source install/installQuake3.sh
 source install/installMednafen.sh
+source install/installPcsx.sh
 
 # This will be the initial set up script for pocket chip
 
@@ -50,6 +51,21 @@ if is_confirmed; then
     e_bold "Install ssh..."
     command-delay
     sudo apt-get install -y ssh
+else
+  e_bold "Installation skipped"
+fi
+
+# Custom MOTD
+# https://bbs.nextthing.co/t/customized-motd/9504
+print-spacing
+e_arrow "MOTD (Message of the day)"
+e_note "Just a fun little message of the day ascii chip image, for every time you log into your chip."
+e_note "Taken from: https://bbs.nextthing.co/t/customized-motd/9504"
+seek_confirmation "Would you like to install MOTD?"
+if is_confirmed; then
+    e_bold "Installing MOTD..."
+    command-delay
+    sudo cp assets/motd /etc/motd
 else
   e_bold "Installation skipped"
 fi
@@ -138,22 +154,28 @@ fi
 #https://bbs.nextthing.co/t/mednafen-emulator-configuration-gbc-gba-snes-nes/5027
 print-spacing
 e_arrow "Mednafen"
-e_note "Mednafen is a retro game emulator, and can emulate many systems (GBA, GBC, NES)."
+e_note "Mednafen is a retro game emulator, and can emulate many systems (GBA, GBC, NES, Sega Genesis/Megadrive)."
 e_note "More information can be found here: https://bbs.nextthing.co/t/mednafen-emulator-configuration-gbc-gba-snes-nes/5027"
 seek_confirmation "Would you like to install Mednafen?"
 if is_confirmed; then
-    e_bold "Installing Mednafen"
+    e_bold "Installing Mednafen..."
     command-delay
     install-mednafen
 else
   e_bold "Installation skipped"
 fi
 
-#Install playstation
-#http://blog.nextthing.co/community-project-emulate-the-playstation-on-your-pocketc-h-i-p/
-#Coming soon!
+#Install PSX Rearmed
+print-spacing
+e_arrow "pcsx_rearmed"
+e_note "pcsx_rearmed is an ARM/chip friendly playstion 1 emulator"
+seek_confirmation "Would you like to install pcsx_rearmed?"
+if is_confirmed; then
+    e_bold "Installing pcsx_rearmed..."
+    command-delay
+    install-pcsx
+else
+  e_bold "Installation skipped"
+fi
 
-#Custom MOTD
-#http://blog.nextthing.co/3-new-community-tutorials-play-openrct2-chat-with-pidgin-and-customize-your-motd/
-#http://www.linuxjournal.com/content/tech-tip-using-figlet-spice-your-scripts
-#Coming soon!
+# Final how to use guide

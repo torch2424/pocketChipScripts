@@ -19,6 +19,10 @@ install-mednafen() {
 
     # Sound
     find-replace-line "sound.device" "sound.device sexyal-literal-default" $mednafen_config_file
+    find-replace-line "sound.period_time" "sound.period_time 500" $mednafen_config_file
+
+    #Auto Save
+    find-replace-line "autosave" "autosave 1" $mednafen_config_file
 
     # Some certain config such as saving states
     # http://mednafen.fobby.net/documentation/#Section_security_savestates
@@ -48,12 +52,15 @@ install-mednafen() {
     find-replace-line "nes.yres" "nes.yres 272" $mednafen_config_file
     find-replace-line "nes.yscalefs" "nes.yscalefs 2.000000" $mednafen_config_file
 
-    # Sega Genesis Config
-    find-replace-line "md.stretch" "md.stretch aspect" $mednafen_config_file
-    find-replace-line "md.xres" "md.xres 480" $mednafen_config_file
-    find-replace-line "md.xscalefs" "md.xscalefs 2.000000" $mednafen_config_file
-    find-replace-line "md.yres" "md.yres 272" $mednafen_config_file
-    find-replace-line "md.yscalefs" "md.yscalefs 2.000000" $mednafen_config_file
+    # Megadrive/Sega Genesis Config
+    find-replace-line "md.stretch" "md.stretch 0" $mednafen_config_file
+    find-replace-line "md.xres" "md.xres 320" $mednafen_config_file
+    find-replace-line "md.xscalefs" "md.xscalefs 1.000000" $mednafen_config_file
+    find-replace-line "md.yres" "md.yres 240" $mednafen_config_file
+    find-replace-line "md.yscalefs" "md.yscalefs 1.000000" $mednafen_config_file
+
+    # PSX Config, Not Playable
+    # Snes Config, Crashes
 
 
 
@@ -70,10 +77,10 @@ install-mednafen() {
     mkdir $rompath/roms/gba
     mkdir $rompath/roms/gbc
     mkdir $rompath/roms/nes
-    mkdir $rompath/roms/genesis
+    mkdir $rompath/roms/megadrive-genesis
 
     # Chmod the roms folder
-    chmod 775 -R $rompath/roms
+    chmod 777 -R $rompath/roms
     chown chip:chip -R $rompath/roms
 
     #Install zentiy for the gui
