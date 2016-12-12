@@ -25,7 +25,7 @@ install-samba() {
 
     #Add to the bottom of the conf
     echo "[$SAMBA_FOLDER]" >> /etc/samba/smb.conf
-    echo "path = /home/chip/sambaShare" >> /etc/samba/smb.conf
+    echo "path = $SAMBA_FOLDER" >> /etc/samba/smb.conf
     echo "public = yes" >> /etc/samba/smb.conf
     echo "writable = yes" >> /etc/samba/smb.conf
     echo "comment = smb share" >> /etc/samba/smb.conf
