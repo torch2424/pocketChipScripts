@@ -20,6 +20,13 @@ install-mednafen() {
     # Sound
     find-replace-line "sound.device" "sound.device sexyal-literal-default" $mednafen_config_file
 
+    # Some certain config such as saving states
+    # http://mednafen.fobby.net/documentation/#Section_security_savestates
+    # Fix using this: https://bbs.nextthing.co/t/mednafen-emulator-configuration-gbc-gba-snes-nes/5027/348
+    find-replace-line "command.save_state keyboard" "command.save_state keyboard 53+alt" $mednafen_config_file
+    find-replace-line "command.load_state keyboard" "command.load_state keyboard 55+alt" $mednafen_config_file
+
+
     # GBA config
     find-replace-line "gba.xscalefs" "gba.xscalefs 2.000000" $mednafen_config_file
     find-replace-line "gba.yscalefs" "gba.yscalefs 2.000000" $mednafen_config_file
@@ -41,6 +48,13 @@ install-mednafen() {
     find-replace-line "nes.yres" "nes.yres 272" $mednafen_config_file
     find-replace-line "nes.yscalefs" "nes.yscalefs 2.000000" $mednafen_config_file
 
+    # Sega Genesis Config
+    find-replace-line "md.stretch" "md.stretch aspect" $mednafen_config_file
+    find-replace-line "md.xres" "md.xres 480" $mednafen_config_file
+    find-replace-line "md.xscalefs" "md.xscalefs 2.000000" $mednafen_config_file
+    find-replace-line "md.yres" "md.yres 272" $mednafen_config_file
+    find-replace-line "md.yscalefs" "md.yscalefs 2.000000" $mednafen_config_file
+
 
 
     ##### Install the gui ####
@@ -56,6 +70,7 @@ install-mednafen() {
     mkdir $rompath/roms/gba
     mkdir $rompath/roms/gbc
     mkdir $rompath/roms/nes
+    mkdir $rompath/roms/genesis
 
     # Chmod the roms folder
     chmod 775 -R $rompath/roms
