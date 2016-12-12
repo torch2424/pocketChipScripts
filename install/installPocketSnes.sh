@@ -7,7 +7,7 @@ install-pocket-snes() {
     SCRIPT_DIR=$(pwd)
 
     sudo apt install libsdl1.2-dev build-essential  git --no-install-recommends
-    https://github.com/rmbq/PocketSNES.git /home/chip/pocketSNES
+    git clone https://github.com/rmbq/PocketSNES.git /home/chip/pocketSNES
     cd /home/chip/pocketSNES
     wget -O snes.patch http://paste.lisp.org/display/325373/raw
     patch -p1 < snes.patch
