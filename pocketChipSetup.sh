@@ -144,8 +144,7 @@ seek_confirmation "Would you like to install Mednafen?"
 if is_confirmed; then
     e_bold "Installing Mednafen"
     command-delay
-    e_warning "This will require opening Mednafen for 10 seconds, please do not interact with pocket chip..."
-    command-delay
+    e_warning "This will require opening Mednafen for 10 seconds, please do not interact with pocket chip during that time..."
     command-delay
     command-delay
     command-delay
