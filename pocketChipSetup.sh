@@ -177,4 +177,17 @@ else
   e_bold "Installation skipped"
 fi
 
+#Install Pocket SNES
+print-spacing
+e_arrow "Pocket SNES"
+e_note "Pocket SNES is an ARM/chip friendly SNES, super nintendo, emulator"
+seek_confirmation "Would you like to install Pocket SNES?"
+if is_confirmed; then
+    e_bold "Installing Pocket SNES..."
+    command-delay
+    install-pocket-snes
+else
+  e_bold "Installation skipped"
+fi
+
 # Final how to use guide
