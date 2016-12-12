@@ -57,6 +57,10 @@ install-mednafen() {
     mkdir $rompath/roms/gbc
     mkdir $rompath/roms/nes
 
+    # Chmod the roms folder
+    chmod 775 -R $rompath/roms
+    chown chip:chip -R $rompath/roms
+
     #Install zentiy for the gui
     sudo apt-get install -y zenity
 

@@ -21,7 +21,8 @@ install-samba() {
 
     #Make the path for the samba
     mkdir /home/chip/$SAMBA_FOLDER
-    chmod 1777 /home/chip/$SAMBA_FOLDER
+    chmod 1775 /home/chip/$SAMBA_FOLDER
+    chown chip:chip 1775 /home/chip/$SAMBA_FOLDER
 
     #Add to the bottom of the conf
     echo "[$SAMBA_FOLDER]" >> /etc/samba/smb.conf
