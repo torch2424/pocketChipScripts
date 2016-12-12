@@ -9,6 +9,7 @@ source install/installDoom.sh
 source install/installQuake3.sh
 source install/installMednafen.sh
 source install/installPcsx.sh
+source install/installPocketSnes.sh
 
 # This will be the initial set up script for pocket chip
 
