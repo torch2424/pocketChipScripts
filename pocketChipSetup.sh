@@ -195,11 +195,8 @@ fi
 print-spacing
 e_header "Finished!"
 print-spacing
-e_note "Most programs sit in the background to provide their service, e.g, ssh, samba, etc..."
+e_note "Most programs sit in the background to provide their service, e.g, ssh, samba(smb://chip), etc..."
 e_warning "How to use the available/launchable programs:"
-print-spacing
-e_bold "SSH"
-echo "Standard ssh with laptop: https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md"
 print-spacing
 e_bold "Surf Mobile User Agent"
 echo "surf google.com"
@@ -217,5 +214,5 @@ e_bold "pcsx_rearmed"
 echo "(from home directory) ./pcsx"
 print-spacing
 e_bold "Pocket SNES"
-echo "(from home directory) ./PocketSNES [path to file here]"
+echo "(from home directory) ./PocketSNES"
 print-spacing
