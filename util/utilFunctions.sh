@@ -51,15 +51,15 @@ blue=$(tput setaf 38)
 # Headers and  Logging
 #
 
-e_header() { printf "\n${bold}${purple}==========  %s  ==========${reset}\n" "$@"
+e_header() { printf "\n${bold}${purple}====  %s  ====${reset}\n" "$@"
 }
-e_arrow() { printf "➜ $@\n"
+e_arrow() { printf "--> $@\n"
 }
-e_success() { printf "${green}✔ %s${reset}\n" "$@"
+e_success() { printf "${green}~ %s${reset}\n" "$@"
 }
-e_error() { printf "${red}✖ %s${reset}\n" "$@"
+e_error() { printf "${red}X %s${reset}\n" "$@"
 }
-e_warning() { printf "${tan}➜ %s${reset}\n" "$@"
+e_warning() { printf "${tan}--> %s${reset}\n" "$@"
 }
 e_underline() { printf "${underline}${bold}%s${reset}\n" "$@"
 }

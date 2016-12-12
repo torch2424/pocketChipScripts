@@ -13,29 +13,24 @@ source install/installMednafen.sh
 
 # Welcome the user, Possibly put a cool banner here one day
 print-spacing
-e_header "Hello! Welcome to the torch2424 pocket chip setup script!!!"
+e_header "Welcome to the torch2424 pocket chip setup script!"
 print-spacing
 
 # Ask for sudo (To install packages and update)
 e_warning "This script will need superuser access to run things like apt-get."
 get-sudo
 
-# Install somebasic extras, taken from alot of blog posts
+# Update/Upgrade the chip, and install dependencies for this script
 print-spacing
-e_arrow "Installing some extras/dependencies (ssh, git, etc...)"
-command-delay
-sudo apt-get install -y ssh git sed
-
-# Update/Upgrade the chip
-print-spacing
-e_arrow "Updating/Upgrading pocket chip"
-e_note "This is highly suggested if this is the first time installing packages with the device"
-seek_confirmation "Would you like to Update/Upgrade pocket chip?"
+e_arrow "Updating/Upgrading/Dependencies pocket chip"
+e_note "This is highly suggested if this is the first time installing packages with the device, or the first time using this script"
+seek_confirmation "Would you like to Updating/Upgrading/Dependencies pocket chip?"
 if is_confirmed; then
     e_bold "Updating/Upgrading pocket chip..."
     command-delay
     sudo apt-get update
     sudo apt-get -y upgrade
+    sudo apt-get install -y ssh git sed
 else
   e_bold "Installation skipped"
 fi
