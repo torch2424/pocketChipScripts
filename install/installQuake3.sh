@@ -11,6 +11,9 @@ install-quake-3() {
 
     #Return to pocket chip scripts folder
     cd ..
+
+    # Enable full screen mode for quake 3
+    find-replace-line "+set r_fullscreen 0 \\" "+set r_fullscreen 1 \\" $mednafen_config_file
 }
 
 #Open with the command: openarena
