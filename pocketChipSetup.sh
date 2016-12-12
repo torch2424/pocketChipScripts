@@ -192,3 +192,30 @@ else
 fi
 
 # Final how to use guide
+print-spacing
+e_header "Finished!"
+print-spacing
+e_note "Most programs sit in the background to provide their service, e.g, ssh, samba, etc..."
+e_warning "How to use the available/launchable programs:"
+print-spacing
+e_bold "SSH"
+echo "Standard ssh with laptop: https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md"
+print-spacing
+e_bold "Surf Mobile User Agent"
+echo "surf google.com"
+print-spacing
+e_bold "Doom"
+echo "prboom"
+print-spacing
+e_bold "Quake III"
+echo "openarena"
+print-spacing
+e_bold "Mednafen"
+echo "(from home directory) ./mednafenGui"
+print-spacing
+e_bold "pcsx_rearmed"
+echo "(from home directory) ./pcsx"
+print-spacing
+e_bold "Pocket SNES"
+echo "(from home directory) ./PocketSNES [path to file here]"
+print-spacing
