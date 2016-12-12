@@ -147,7 +147,6 @@ if is_confirmed; then
     e_warning "This will require opening Mednafen for 10 seconds, please do not interact with pocket chip during that time..."
     command-delay
     command-delay
-    command-delay
     install-mednafen
 else
   e_bold "Installation skipped"

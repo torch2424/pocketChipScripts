@@ -7,9 +7,10 @@ install-mednafen() {
     sudo apt-get install -y mednafen libsdl2-dev
 
     # Need to open mednafen, for it to make it config folder
-    mednafen
+    # also need to run as user to get working
+    su -c "mednafen" -s /bin/sh chip
     sleep 10
-    pkill mednafen
+    su -c "pkill mednafen" -s /bin/sh chip
 
     mednafen_config_file="/home/chip/.mednafen/mednafen-09x.cfg"
 
