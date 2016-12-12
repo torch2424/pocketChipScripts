@@ -6,7 +6,7 @@ source util/utilFunctions.sh
 source install/installSamba.sh
 source install/installPocketHome.sh
 source install/installDoom.sh
-source install/instalQuake3.sh
+source install/installQuake3.sh
 source install/installMednafen.sh
 
 # This will be the initial set up script for pocket chip
