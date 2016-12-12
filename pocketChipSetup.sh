@@ -137,18 +137,17 @@ fi
 
 #Install Quake III
 #http://blog.nextthing.co/accelerate-your-3d-gaming-with-quake-iii-on-pocketc-h-i-p/
-# DOESN'T WORK! GUIDE DOESNT WORK FOR ME :(
-# print-spacing
-# e_arrow "Quake III"
-# e_note "Next Thing Co. Quake III Install found at: http://blog.nextthing.co/accelerate-your-3d-gaming-with-quake-iii-on-pocketc-h-i-p/"
-# seek_confirmation "Would you like to install Quake III?"
-# if is_confirmed; then
-#     e_bold "Installing Quake III"
-#     command-delay
-#     install-quake-3
-# else
-#   e_bold "Installation skipped"
-# fi
+print-spacing
+e_arrow "Quake III"
+e_note "Next Thing Co. Quake III Install found at: http://blog.nextthing.co/accelerate-your-3d-gaming-with-quake-iii-on-pocketc-h-i-p/"
+seek_confirmation "Would you like to install Quake III?"
+if is_confirmed; then
+    e_bold "Installing Quake III"
+    command-delay
+    install-quake-3
+else
+  e_bold "Installation skipped"
+fi
 
 #Install Mednafen
 #https://bbs.nextthing.co/t/mednafen-emulator-configuration-gbc-gba-snes-nes/5027
