@@ -196,23 +196,23 @@ print-spacing
 e_header "Finished!"
 print-spacing
 e_note "Most programs sit in the background to provide their service, e.g, ssh, samba(smb://chip), etc..."
-e_warning "How to use the available/launchable programs:"
+e_warning "How to use the available/launchable programs from the terminal:"
 print-spacing
-e_bold "Surf Mobile User Agent"
+e_bold "How to use: Surf Mobile User Agent"
 echo "surf google.com"
 print-spacing
-e_bold "Doom"
+e_bold "How to use: Doom"
 echo "prboom"
 print-spacing
-e_bold "Quake III"
+e_bold "How to use: Quake III"
 echo "openarena"
 print-spacing
-e_bold "Mednafen"
+e_bold "How to use: Mednafen"
 echo "(from home directory) ./mednafenGui"
 print-spacing
-e_bold "pcsx_rearmed"
+e_bold "How to use: pcsx_rearmed"
 echo "(from home directory) ./pcsx"
 print-spacing
-e_bold "Pocket SNES"
+e_bold "How to use: Pocket SNES"
 echo "(from home directory) ./PocketSNES"
 print-spacing
