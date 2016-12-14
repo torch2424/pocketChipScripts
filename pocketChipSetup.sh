@@ -19,7 +19,7 @@ e_header "Welcome to the torch2424 pocket chip setup script!"
 print-spacing
 
 # Ask for sudo (To install packages and update)
-e_warning "This script will need superuser access to run things like apt-get."
+e_warning "This script will need superuser access to run things like apt-get. It will run as root."
 get-sudo
 
 # Update/Upgrade the chip, and install dependencies for this script
@@ -27,6 +27,7 @@ print-spacing
 e_arrow "Updating/Upgrading pocket chip"
 e_note "This is highly suggested if this is the first time installing packages with the device, or the first time using this script"
 e_note "This will also install the dependencies of this script. Which include: git, and sed"
+e_note "This will run sudo apt-get install update && sudo apt-get install upgrade"
 seek_confirmation "Would you like to Updating/Upgrading pocket chip?"
 if is_confirmed; then
     e_bold "Updating/Upgrading pocket chip..."
@@ -122,7 +123,7 @@ fi
 #http://blog.nextthing.co/customize-the-hell-out-of-your-pocketc-h-i-p-install-doom-give-it-an-icon-on-the-home-screen/
 print-spacing
 e_arrow "Doom"
-e_note "Next Thing Co. Doom Install found at: https://bbs.nextthing.co/t/pocket-home-marshmallow-edition/6579"
+e_note "Next Thing Co. Doom Install found at: http://blog.nextthing.co/customize-the-hell-out-of-your-pocketc-h-i-p-install-doom-give-it-an-icon-on-the-home-screen/"
 seek_confirmation "Would you like to install Doom?"
 if is_confirmed; then
     e_bold "Installing Doom..."
@@ -182,6 +183,7 @@ fi
 print-spacing
 e_arrow "Pocket SNES"
 e_note "Pocket SNES is an ARM/chip friendly SNES, super nintendo, emulator"
+e_note "In this current version, it will prompt you to apply a patch. Please enter y for every question."
 seek_confirmation "Would you like to install Pocket SNES?"
 if is_confirmed; then
     e_bold "Installing Pocket SNES..."
@@ -209,6 +211,7 @@ echo "openarena"
 print-spacing
 e_bold "How to use: Mednafen"
 echo "(from home directory) ./mednafenGui"
+echo "Use ALT+number instead of the F-number(F2, F6, etc..) buttons"
 print-spacing
 e_bold "How to use: pcsx_rearmed"
 echo "(from home directory) ./pcsx"
